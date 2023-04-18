@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="売上予測自動レポート">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <link rel="stylesheet" href="../static/css/sanitize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Sales forecast report automatic creation</title>
+</head>
+<body>
+    <h1 class="content-title">Sales forecast report <br>automatic creation</h1>
+    <!-- データ・ファイルの送信、エラーメッセージを表示 -->
+    <section>
+        <p class="error-message">{{message}}</p>
+        <form method="POST" action="/report" enctype="multipart/form-data" >
+            <table class="form-table">
+                <tr>
+                    <th>
+                        <label for="address">
+                            Gmailアドレス
+                        </label>
+                    </th>
+                    <td>
+                        <input type=email name="email" id="address" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="send-on">
+                            Excelファイル
+                        </label>
+                    </th>
+                    <td>
+                        <input type=file name="file" id="send-on" class="input-file">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        レポートの種類
+                    </th>
+                    <td>
+                        <label>
+                            <input type="radio" name="report" value="A">A.レポート
+                        </label>
+                        <label>
+                            <input type="radio" name="report" value="B">B.レポート
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <div class="form-button">
+                <input type=submit class = "button" value=" 送信 ">
+                <input type=reset class = "button" value=" 取消 ">
+            </div>
+        </form>
+    </section>
+
+    <!--コンテンツの説明、使い方内容 -->
+    <section class="content-wrapper">
+        <h1 class = "section-headline">Sales forecast report automatic creationとは？</h1>
+        <p class="content-description">
+            Excelデータを使って3月の売上予測と自動でレポートの作成をしてくれる無料サービスです。<br>
+            レポートの作成をSales forecast report automatic creationに任せれば、<br>
+            時間の掛かるレポート作成もボタン1つで作成できます。<br>
+        </p>
+    </section>
+
+    <section class="content-wrapper">
+        <h1 class = "section-headline">Sales forecast report automatic creationの使い方</h1>
+        <p class="content-description">
+            1.ExcelファイルとGmailアドレスを2つ貼り付けます。<br>
+            2.レポートの種類を選択します。<br>
+            3.OKボタンを押すと送信されます。<br>
+            4.完成された売上予測のレポートはGmailに送信されます。
+        </p>
+    </section>
+    <!--    完成レポートの内容説明 Aパターン  -->
+    <section class="content-wrapper">
+        <h1 class = "section-headline">完成レポート内容 Aパターン</h1>
+        <figure class="completion-report">
+            <!-- <img class="complention-report-image" src="{{ url_for('static', filename='images/forecast-report.png') }}" alt="forecast report image" > -->
+            <img class="complention-report-image" src="../static/images/forecast-report.png" alt="forecast report image">
+            <figcaption class="completion-report-caption">
+                <h2 class="completion-report-headline">内容の説明</h2>
+                <p class="completion-report-description">
+                    画像の左側がExcelデータ、右側は広告費あり・なしのデータと決定係数、棒・線グラフになります。<br>
+                    順番に内容の説明をしていきます。
+                </p>
+
+                <h2 class="completion-report-headline">Excelデータ</h2>
+                <p class="completion-report-description">
+                    列ごとに内容を紹介していきます。<br>
+                    <br>
+                    A・日付…1ヶ月分の日付<br>
+                    B・今年の売上…1日から13日は今年9月の2週間分の売上、14日から30日は今年9月の売上予測のデータ<br>
+                    C・今年の売上（コストあり）…1日から13日は今年9月の2週間分の売上、14日から30日は今年9月のコストをかけた売上予測のデータ<br>
+                    D・コスト…広告代<br>
+                    E・前週比…2週間分の前週比、パーセントで表示<br>
+                    F・前週の売上…2週間分の前週の売上データ<br>
+                    G・前年比…2週間分の前年比、パーセントで表示<br>
+                    H・去年の売上…2週間分の去年の売上データ
+                </p>
+
+                <h2 class="completion-report-headline">広告費あり・なしのデータ</h2>
+                <p class="completion-report-description">
+                    広告費を1万円かけた場合となしの場合の売上合計予測金額<br>
+                </p>
+
+                <h2 class="completion-report-headline">決定係数(モデル精度)</h2>
+                <p class="completion-report-description">
+                    1に近いほど精度は高く、0に近いほど精度は低い。<br>
+                    予測するものによって決定係数がどのぐらいあればいいのか意見が分かれますが、0.8以上あればそれなりの精度になります。
+                </p>
+
+                <h2 class="completion-report-headline">棒・線グラフ</h2>
+                <p class="completion-report-description">
+                   Excelのデータだけではわかりにくいので棒・線グラフを使いました。<br>
+                   売上予測データの1日前のデータ（9月13日）を使って、グラフを作成しています。<br>
+                   今年データと去年データと先週データを比較しています、売上の推移がグラフからわかりやすく読みとれます。
+                </p>
+
+            </figcaption>
+        </figure>
+    </section>
+    <!--    完成レポートの内容説明 Bパターン  -->
+    <section class="content-wrapper">
+        <h1 class = "section-headline">完成レポート内 Bパターン</h1>
+        <figure class="completion-report">
+            <!-- <img class="complention-report-image" src="{{ url_for('static', filename='images/summary-report.png') }}" alt="summary report image" > -->
+            <img class="complention-report-image" src="../static/images/summary-report.png" alt="summary report image">
+            <figcaption class="completion-report-caption">
+                <h2 class="completion-report-headline">内容の説明</h2>
+                <p class="completion-report-description">
+                    画像の左上は平均売上の棒グラフ、右上は散布図と回帰直線、<br>
+                    その下にExcelデータがあります、順番に内容の説明をしていきます。
+                </p>
+
+                <h2 class="completion-report-headline">棒グラフ</h2>
+                <p class="completion-report-description">
+                    Excelのデータだけではわかりにくいので棒グラフを使いました。<br>
+                    mean_salesのデータを使って曜日ごとの平均売上の棒グラフ作成しています。<br>
+                </p>
+
+                <h2 class="completion-report-headline">散布図・回帰直線</h2>
+                <p class="completion-report-description">
+                    salesとcostのExcelデータを使った散布図と回帰直線になります。
+                    回帰直線はコストごとの平均値です、<br>
+                    このグラフ見ると回帰直線が右肩上がりなので、コストをかければかけるほど売上が上がることがわかります。
+                </p>
+
+                <h2 class="completion-report-headline">Excelデータ</h2>
+                <p class="completion-report-description">
+                    列ごとに内容を紹介していきます。<br>
+                    <br>
+                    E・曜日…曜日の名前<br>
+                    F・最大売上…曜日ごとの最大売上<br>
+                    G・最小売上…曜日ごとの最小売上<br>
+                    I・合計売上…曜日ごとの合計売上<br>
+                    H・平均売上…曜日ごとの平均売上<br>
+                </p>
+            </figcaption>
+        </figure>
+    </section>
+    <!--    完成レポートに必要な資料と注意事項 -->
+    <section class="content-wrapper">
+        <h1 class = "section-headline">完成のレポートに必要な資料と注意事項</h1>
+        <figure class="report-notes">
+            <!-- <img class="report-notes-image" src="{{ url_for('static', filename='images/sample-data.png') }}" alt="sales data image" > -->
+            <img class="report-notes-image" src="../static/images/sample-data.png" alt="sales data image" >
+            <figcaption class="report-notes-caption">
+                <h2 class="report-notes-headline">必要な資料</h2>
+                <p class="report-notes-descaption">
+                   Excelの中にsheetを2つ必要です、1番目のシートに去年の売上データ（画像の左側）<br>
+                   2番目のシートに今年の売上データ（画像の右側）を用意してください。
+                </p>
+                <h2 class="report-notes-headline">注意事項</h2>
+                <p class="report-notes-descaption">
+                    1.列はdata、sales、costの3つにする。<br>
+                    2.去年のデータは1ヶ月分必要です。<br>
+                    3.今年のデータは2週間分のデータと先週のデータが必要です。
+                </p>
+            </figcaption>
+        </figure>
+    </section>
+</body>
+</html>

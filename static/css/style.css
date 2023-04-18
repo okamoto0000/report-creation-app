@@ -1,0 +1,147 @@
+@charset "utf-8";
+body {
+    font-family:"ヒラギノ角ゴシック","メイリオ",sans-serif;
+    background-color: #f5f5f7;
+}
+/* 見出し、タイトル ポインター ラッパーの設定*/
+input,label {
+    cursor:pointer;
+}
+
+.content-title {
+    font-family: "ヒラギノ角ゴシック","メイリオ",sans-serif;
+    text-align: center;
+    font-size: 48px;
+    color: #f5f5f7;
+    background-color: #000;
+    padding-bottom: 90px;
+    padding-top: 85px;
+}
+
+.section-headline {
+    font-size: 35px;
+    text-align: center;
+    margin: 0 0 40px;
+}
+
+.content-wrapper {
+    background-color: #fff;
+    margin:1em auto;
+    text-align: center;
+    border-radius: 18px;
+    max-width: 1200px;
+    padding-bottom: 38px;
+    padding-top: 30px;
+}
+
+
+
+/* データファイル送信 ボタン設定 */
+.error-message {
+    font-size: 20px;
+    color: #ff0000;
+    text-align: center;
+}
+
+.button {
+    display:inline-block;
+    color: #fff;
+    font-weight: bold;
+    background-color: #000;
+    text-align: center;
+    padding:15px 60px;
+    border-radius: 8px;
+    box-shadow:5px 5px 5px #bbb;
+    transition: box-shadow .25s;
+    margin-top: 40px;
+
+}
+
+.form-button {
+    margin-bottom:40px;
+    text-align: center;
+}
+
+.button:hover {
+    box-shadow: 0 0 0 #bbb;
+}
+
+.input{
+    border-radius:5px;
+    padding:10px;
+    border:1px solid #ccc;
+    min-width:500px;
+}
+
+.form-table{
+    margin: 0 auto;
+}
+
+.form-table th{
+    padding:10px;
+    text-align:left;
+}
+
+.form-table td{
+    padding:10px;
+}
+
+
+
+/* コンテンツ説明、使い方内容の設定 */
+.content-description{
+    text-align: left;
+    padding-left: 110px;
+    margin-left:100px;
+}
+
+
+
+/* 完成レポートの内容説明の設定*/
+.completion-report{
+    margin: 0px;
+    display:inline-block;
+
+}
+.completion-report-caption{
+    padding-left: 20px;
+}
+.completion-report-headline{
+    margin: 0 0 20px;
+    font-size: 20px;
+    text-align: justify;
+    padding-left: 100px;
+}
+.complention-report-image {
+    margin: 0 0 20px;
+    width: 80%;
+    height: 50%;
+    padding-bottom:40px;
+}
+.completion-report-description {
+    text-align: justify;
+    padding-left: 110px;
+}
+
+
+/* 完成レポートに必要な資料と注意事項の設定 */
+
+
+.report-notes {
+    margin: 0px;
+    display:flex;
+}
+.report-notes-image {
+    width:45%;
+    height:40%;
+    padding-left: 40px;
+}
+.report-notes-caption {
+    padding-left: 20px;
+}
+.report-notes-headline {
+    font-size: 20px;
+}
+.report-notes-descaption {
+    text-align: justify;
+}
