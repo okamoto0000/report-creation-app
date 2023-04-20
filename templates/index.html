@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="売上予測自動レポート">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
-    <link rel="stylesheet" href="../static/css/sanitize.css">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="../static/css/sanitize.css">
+    <link rel="stylesheet" href="../static/css/style.css"> -->
     <title>Sales forecast report automatic creation</title>
 </head>
 <body>
@@ -63,7 +63,7 @@
     <section class="content-wrapper">
         <h1 class = "section-headline">Sales forecast report automatic creationとは？</h1>
         <p class="content-description">
-            Excelデータを使って3月の売上予測と自動でレポートの作成をしてくれる無料サービスです。<br>
+            Excelデータを使って今月の売上予測と自動でレポートの作成をしてくれる無料サービスです。<br>
             レポートの作成をSales forecast report automatic creationに任せれば、<br>
             時間の掛かるレポート作成もボタン1つで作成できます。<br>
         </p>
@@ -82,8 +82,8 @@
     <section class="content-wrapper">
         <h1 class = "section-headline">完成レポート内容 Aパターン</h1>
         <figure class="completion-report">
-            <!-- <img class="complention-report-image" src="{{ url_for('static', filename='images/forecast-report.png') }}" alt="forecast report image" > -->
-            <img class="complention-report-image" src="../static/images/forecast-report.png" alt="forecast report image">
+            <img class="complention-report-image" src="{{ url_for('static', filename='images/forecast-report.png') }}" alt="forecast report image" >
+            <!-- <img class="complention-report-image" src="../static/images/forecast-report.png" alt="forecast report image"> -->
             <figcaption class="completion-report-caption">
                 <h2 class="completion-report-headline">内容の説明</h2>
                 <p class="completion-report-description">
@@ -130,8 +130,8 @@
     <section class="content-wrapper">
         <h1 class = "section-headline">完成レポート内 Bパターン</h1>
         <figure class="completion-report">
-            <!-- <img class="complention-report-image" src="{{ url_for('static', filename='images/summary-report.png') }}" alt="summary report image" > -->
-            <img class="complention-report-image" src="../static/images/summary-report.png" alt="summary report image">
+            <img class="complention-report-image" src="{{ url_for('static', filename='images/summary-report.png') }}" alt="summary report image" >
+            <!-- <img class="complention-report-image" src="../static/images/summary-report.png" alt="summary report image"> -->
             <figcaption class="completion-report-caption">
                 <h2 class="completion-report-headline">内容の説明</h2>
                 <p class="completion-report-description">
@@ -169,8 +169,8 @@
     <section class="content-wrapper">
         <h1 class = "section-headline">完成のレポートに必要な資料と注意事項</h1>
         <figure class="report-notes">
-            <!-- <img class="report-notes-image" src="{{ url_for('static', filename='images/sample-data.png') }}" alt="sales data image" > -->
-            <img class="report-notes-image" src="../static/images/sample-data.png" alt="sales data image" >
+            <img class="report-notes-image" src="{{ url_for('static', filename='images/sample-data.png') }}" alt="sales data image" >
+            <!-- <img class="report-notes-image" src="../static/images/sample-data.png" alt="sales data image" > -->
             <figcaption class="report-notes-caption">
                 <h2 class="report-notes-headline">必要な資料</h2>
                 <p class="report-notes-descaption">
@@ -182,6 +182,7 @@
                     1.列はdata、sales、costの3つにする。<br>
                     2.去年のデータは1ヶ月分必要です。<br>
                     3.今年のデータは2週間分のデータと先週のデータが必要です。
+                    4.平日よりも土日の方が売上が高いことを前提に売上予測の設定をしています。
                 </p>
             </figcaption>
         </figure>
