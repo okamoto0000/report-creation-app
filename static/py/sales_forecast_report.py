@@ -18,7 +18,7 @@ from openpyxl.drawing.image import Image
 
 #▲レポート作成
 #日付の変数設定
-today = datetime.date(2023,4,17)
+today = datetime.date(2023,9,14)
 month_start = datetime.date(today.year, today.month, 1)
 month_end = datetime.date(today.year, today.month+1, 1) - timedelta(days=1)
 
