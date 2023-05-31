@@ -253,9 +253,9 @@ for col in ["J2","J3","J4","K2","K3","K4"]:
 
 #画像を添付
 img1 = Image("image_file_storage/graph01.png")
-worksheet.add_image(img1,"I6")
+worksheet.add_image(img1,"J6")
 img2 = Image("image_file_storage/graph02.png")
-worksheet.add_image(img2,"I20")
+worksheet.add_image(img2,"J21")
 
 workbook.save(export_file)
 
