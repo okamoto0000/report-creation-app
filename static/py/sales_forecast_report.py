@@ -50,19 +50,22 @@ df_this_year['last week sales'] = df_this_year['this year sales'].shift(7)
 df_this_year['last week per'] = df_this_year['this year sales']/df_this_year['last week sales']
 #日付で条件抽出
 df_this_year = df_this_year[(df_this_year.index >= pd.to_datetime(month_start)) & (df_this_year.index < pd.to_datetime(today))]
-#変数設定(指定した行名)
-specified_date = datetime.date(today.year, today.month, today.day-1)
-specified_date = specified_date.strftime("%Y-%m-%d")
+
 
 
 
 #棒グラフ作成
+
+#変数設定(指定した日付)
+specified_date = datetime.date(today.year, today.month, today.day-1)
+specified_date = specified_date.strftime("%Y-%m-%d")
+
 #グラフサイズ指定
 plt.figure(figsize=(10,7))
             
 #X軸方向のデータ配置・位置
 x1 = [1, 2]
-#棒グラフの高さ・データの取得・棒グラフの太さ0.2
+#棒グラフの高さ・データの取得
 y1 = [df_this_year.loc[specified_date,'this year sales'],df_this_year.loc[specified_date,'this year sales']]
 
 x2 = [1.2]
